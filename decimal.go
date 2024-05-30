@@ -182,7 +182,7 @@ func NewFromString(value string) (Decimal, error) {
 	var intString string
 	var exp int64
 
-	if value == "" {
+	if value == `""` || value == "" {
 		value = "0" //fix UnmarshalText interface of json
 	}
 	// Check if number is using scientific notation
