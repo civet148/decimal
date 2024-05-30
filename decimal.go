@@ -182,6 +182,9 @@ func NewFromString(value string) (Decimal, error) {
 	var intString string
 	var exp int64
 
+	if value == "" {
+		value = "0" //fix UnmarshalText interface of json
+	}
 	// Check if number is using scientific notation
 	eIndex := strings.IndexAny(value, "Ee")
 	if eIndex != -1 {
